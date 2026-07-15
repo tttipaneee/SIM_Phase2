@@ -69,3 +69,20 @@ cor(numeric_vars)
 
 # Save the cleaned dataset to the data folder
 write.csv(dataset_final, "data/used_cars_cleaned.csv", row.names = FALSE)
+
+# 15. Install and load the corrplot package
+install.packages("corrplot")
+library(corrplot)
+
+# 16. Create the correlation matrix object
+cor_matrix <- cor(numeric_vars)
+
+# 17. Generate the Correlation Heatmap
+corrplot(cor_matrix, 
+         method = "color",          # Fills the squares with color
+         addCoef.col = "black",     # Prints the r-values inside the squares
+         tl.col = "black",          # Makes text labels black
+         tl.srt = 45,               # Tilts the text labels for readability
+         title = "Correlation Heatmap of Numerical Variables",
+         mar = c(0,0,1,0))          # Fixes title margin spacing
+
