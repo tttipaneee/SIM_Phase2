@@ -52,6 +52,12 @@ upper_bound_milage <- Q3_milage + 1.5 * IQR_milage
 dataset_final <- dataset_clean %>%
   filter(price <= upper_bound_price & milage <= upper_bound_milage)
 
+# 11b. Visualize the distribution for after 
+ggplot(dataset_final, aes(y = price)) + 
+  geom_boxplot(fill = "lightgreen") +
+  ggtitle("Boxplot of Used Car Prices (After IQR Treatment)") +
+  theme_minimal()
+
 # 12. Install and load the moments package for skewness
 install.packages("moments")
 library(moments)
